@@ -6,7 +6,8 @@ Una calculadora web simple y estilizada con un diseño moderno en verde flúor. 
 
 ## Características
 
-- **Diseño atractivo**: Fondo verde flúor con una pantalla oscura y botones interactivos.
+- **Diseño atractivo**: Fondo verde flúor (modo claro) o negro mate (modo oscuro) con una pantalla adaptada al tema.
+- **Modo claro/oscuro**: Alterna entre temas claro y oscuro con un botón (persiste al recargar la página).
 - **Operaciones básicas**: Suma, resta, multiplicación y división.
 - **Paréntesis**: Soporte para expresiones con paréntesis (por ejemplo, `(2 + 3) * 4`).
 - **Funcionalidad adicional**: Botones para decimales, retroceso (borrar el último carácter) y limpieza (AC).
@@ -15,7 +16,7 @@ Una calculadora web simple y estilizada con un diseño moderno en verde flúor. 
 
 ## Demo
 
-Puedes probar la calculadora en vivo aquí: [Enlace a la demo](#) <!-- Si subes la calculadora a GitHub Pages o a otro hosting, actualiza este enlace -->
+Puedes probar la calculadora en vivo aquí: [Enlace a la demo](https://00001discord-calculadora.vercel.app) <!-- Si subes la calculadora a GitHub Pages o a otro hosting, actualiza este enlace -->
 
 ## Instalación
 
@@ -23,4 +24,4 @@ Sigue estos pasos para ejecutar la calculadora localmente:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/[tu-usuario]/calculadora-verde-fluor.git
+   git clone https://github.com/00001DISCORD/calculadora.git
