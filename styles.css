@@ -14,6 +14,8 @@
     --equals-hover: #cc4b21; /* Hover del botón = */
     --special-bg: #d4d4d2; /* Fondo de botones especiales (AC, decimal, etc.) */
     --special-hover: #b5b5b2; /* Hover de botones especiales */
+    --theme-toggle-bg: #b8b5b5; /* Color único para el botón de alternancia en modo claro */
+    --theme-toggle-hover: #6a6a6a; /* Hover único para el botón de alternancia */
 }
 
 /* Modo oscuro */
@@ -31,6 +33,8 @@ body.dark-theme {
     --equals-hover: #b03e1f; /* Hover ajustado */
     --special-bg: #555555; /* Botones especiales más oscuros */
     --special-hover: #444444; /* Hover ajustado */
+    --theme-toggle-bg: #404040; /* Color único para el botón de alternancia en modo oscuro */
+    --theme-toggle-hover: #333333; /* Hover único para el botón de alternancia */
 }
 
 body {
@@ -173,7 +177,7 @@ button:active {
     height: 40px;
     font-size: 1.2rem;
     border-radius: 50%;
-    background-color: var(--special-bg);
+    background-color: var(--theme-toggle-bg); /* Usa la variable específica */
     color: var(--button-text);
     display: flex;
     justify-content: center;
@@ -183,7 +187,7 @@ button:active {
 }
 
 .theme-toggle:hover {
-    background-color: var(--special-hover);
+    background-color: var(--theme-toggle-hover); /* Usa la variable específica */
     transform: scale(1.1);
 }
 
