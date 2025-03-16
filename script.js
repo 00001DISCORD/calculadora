@@ -56,9 +56,7 @@ class Calculator {
         const isLastCharNumber = /\d/.test(lastChar);
         const isLastCharOperator = /[+\-*/]/.test(lastChar);
 
-        // Determinar si abrir o cerrar paréntesis
         if (this.openParenthesesCount === 0 || isLastCharOperator) {
-            // Abrir paréntesis: permitido al inicio, después de un operador, o si no hay paréntesis abiertos
             if (this.currentExpression === '0') {
                 this.currentExpression = '(';
             } else {
@@ -66,7 +64,6 @@ class Calculator {
             }
             this.openParenthesesCount++;
         } else if (this.openParenthesesCount > 0 && (isLastCharNumber || lastChar === ')')) {
-            // Cerrar paréntesis: permitido después de un número o un paréntesis cerrado
             this.currentExpression += ')';
             this.openParenthesesCount--;
         }
@@ -78,7 +75,6 @@ class Calculator {
             let expressionToEvaluate = this.currentExpression.trim();
             if (expressionToEvaluate === '') return;
 
-            // Completar paréntesis faltantes antes de evaluar
             while (this.openParenthesesCount > 0) {
                 expressionToEvaluate += ')';
                 this.openParenthesesCount--;
@@ -126,6 +122,24 @@ class Calculator {
 const expressionElement = document.querySelector('.calculator-expression');
 const resultElement = document.querySelector('.calculator-result');
 const calculator = new Calculator(expressionElement, resultElement);
+
+// Lógica para alternar temas
+const themeToggleButton = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Cargar el tema guardado en localStorage (si existe)
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.classList.add(savedTheme);
+    themeToggleButton.textContent = savedTheme === 'dark-theme' ? '☀️' : '🌙';
+}
+
+themeToggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    const isDarkTheme = body.classList.contains('dark-theme');
+    themeToggleButton.textContent = isDarkTheme ? '☀️' : '🌙'; // Cambiar emoji
+    localStorage.setItem('theme', isDarkTheme ? 'dark-theme' : 'light-theme');
+});
 
 document.querySelector('.calculator-keys').addEventListener('click', (event) => {
     const { target } = event;

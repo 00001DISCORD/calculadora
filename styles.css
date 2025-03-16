@@ -1,27 +1,64 @@
+/* Definir variables CSS para los temas */
+:root {
+    --background-color: #f0f0f0; /* Fondo claro por defecto */
+    --calculator-bg: #39FF14; /* Verde flúor para la calculadora */
+    --screen-bg: #252525; /* Fondo de la pantalla */
+    --screen-text: white; /* Texto de la pantalla */
+    --expression-color: #aaaaaa; /* Color de la expresión */
+    --expression-dark: #999999; /* Expresión oscurecida */
+    --button-bg: #fff; /* Fondo de los botones numéricos */
+    --button-text: #333; /* Texto de los botones numéricos */
+    --operator-bg: #f5923e; /* Fondo de operadores */
+    --operator-hover: #e07b29; /* Hover de operadores */
+    --equals-bg: #f0592b; /* Fondo del botón = */
+    --equals-hover: #cc4b21; /* Hover del botón = */
+    --special-bg: #d4d4d2; /* Fondo de botones especiales (AC, decimal, etc.) */
+    --special-hover: #b5b5b2; /* Hover de botones especiales */
+}
+
+/* Modo oscuro */
+body.dark-theme {
+    --background-color: #1a1a1a; /* Fondo oscuro */
+    --calculator-bg: #1e1e1e; /* Fondo oscuro para la calculadora */
+    --screen-bg: #333333; /* Fondo de la pantalla más claro para contraste */
+    --expression-color: #888888; /* Expresión más apagada */
+    --expression-dark: #666666; /* Expresión oscurecida */
+    --button-bg: #444444; /* Botones numéricos más oscuros */
+    --button-text: #ffffff; /* Texto de botones numéricos blanco */
+    --operator-bg: #d4752e; /* Operadores ajustados */
+    --operator-hover: #b96327; /* Hover ajustado */
+    --equals-bg: #d44a24; /* Botón = ajustado */
+    --equals-hover: #b03e1f; /* Hover ajustado */
+    --special-bg: #555555; /* Botones especiales más oscuros */
+    --special-hover: #444444; /* Hover ajustado */
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
 }
 
 .calculator {
     border-radius: 15px;
     overflow: hidden;
-    background-color: #39FF14;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    background-color: var(--calculator-bg);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     padding: 25px;
     max-width: 400px;
     width: 100%;
+    position: relative; /* Para posicionar el botón de tema */
 }
 
 .calculator-screen {
     width: 92.5%;
-    background-color: #252525;
-    color: white;
+    background-color: var(--screen-bg);
+    color: var(--screen-text);
     text-align: left;
     padding: 10px 20px;
     border-radius: 10px;
@@ -31,9 +68,9 @@ body {
 
 .calculator-expression {
     width: 100%;
-    height: 50px;
+    height: 60px;
     background-color: transparent;
-    color: #aaaaaa;
+    color: var(--expression-color);
     font-size: 2rem;
     overflow-x: auto;
     white-space: nowrap;
@@ -41,17 +78,17 @@ body {
 }
 
 .calculator-expression.dark {
-    color: #999999;
+    color: var(--expression-dark);
     font-size: 1.8rem;
-    margin-top: 10px; /* Ajusta este valor para mover el texto más abajo */
+    margin-top: 10px;
 }
 
 .calculator-result {
     width: 100%;
     height: 60px;
     background-color: transparent;
-    color: white;
-    font-size: 4rem;
+    color: var(--screen-text);
+    font-size: 3rem;
     overflow-x: auto;
     white-space: nowrap;
 }
@@ -63,62 +100,93 @@ body {
 }
 
 button {
-    height: 70px; /* Tamaño original */
+    height: 70px;
     font-size: 1.8rem;
     border: none;
     border-radius: 10px;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #e0e0e0;
+    background-color: #e0e0e0; /* Mantendremos este hover para modo claro */
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+body.dark-theme button:hover {
+    background-color: #555555; /* Hover ajustado para modo oscuro */
+}
+
 button.operator {
-    background-color: #f5923e;
+    background-color: var(--operator-bg);
     color: #fff;
 }
 
 button.operator:hover {
-    background-color: #e07b29;
+    background-color: var(--operator-hover);
 }
 
 button.equal-sign {
-    background-color: #f0592b;
+    background-color: var(--equals-bg);
     color: #fff;
     grid-row: span 2;
-    height: 160px; /* Tamaño original */
+    height: 160px;
 }
 
 button.equal-sign:hover {
-    background-color: #cc4b21;
+    background-color: var(--equals-hover);
 }
 
 button.all-clear {
-    background-color: #f0592b;
+    background-color: var(--equals-bg);
     color: #fff;
 }
 
 button.all-clear:hover {
-    background-color: #cc4b21;
+    background-color: var(--equals-hover);
 }
 
 button.decimal, button.parenthesis, button.backspace {
-    background-color: #d4d4d2;
-    color: #333;
+    background-color: var(--special-bg);
+    color: var(--button-text);
 }
 
 button.decimal:hover, button.parenthesis:hover, button.backspace:hover {
-    background-color: #b5b5b2;
+    background-color: var(--special-hover);
 }
 
 button:active {
     transform: scale(0.95);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo del botón de alternancia de tema */
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--special-bg);
+    color: var(--button-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--special-hover);
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
