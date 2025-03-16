@@ -1,6 +1,6 @@
 # Calculadora Verde Flúor
 
-![Calculadora Verde Flúor](screenshot.png) <!-- Si tienes una captura de pantalla, súbela al repositorio y actualiza esta línea -->
+![Calculadora Blanco](screenshot1.png) ![Calculadora negro](screenshot2.png) <!-- Si tienes una captura de pantalla, súbela al repositorio y actualiza esta línea -->
 
 Una calculadora web simple y estilizada con un diseño moderno en verde flúor. Este proyecto fue creado como parte de un portafolio para mostrar habilidades en HTML, CSS y JavaScript. Soporta operaciones básicas (suma, resta, multiplicación, división), paréntesis, decimales y funciones como retroceso y limpieza.
 
